@@ -54,5 +54,5 @@ jobs:
         mv .deploy_git/.git/ ./public/
         cd ./public/
         git add .
-        git commit -m "CI built at `date +"%Y-%m-%d %H:%M:%S"`"
-        git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
+        git commit -m "CI built "
+        git push origin master # --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
