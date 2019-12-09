@@ -1,0 +1,38 @@
+name: Hexo Auto-Deploy
+on: [push]
+
+jobs:
+  build:
+    name: Hexo Auto-Deploy by GitHub Actions
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 1. git checkout...
+      uses: actions/checkout@v1
+      
+    - name: 2. setup nodejs...
+      uses: actions/setup-node@v1
+    
+    - name: 3. install hexo...
+      run: |
+        npm install hexo-cli -g
+        npm install
+        
+    - name: 4. hexo generate public files...
+      run: |
+        hexo clean
+        hexo g  
+
+    - name: 5. deploy 'public files' to 'storm1122.github.io' repo...
+      env:
+        GH_REF: https://storm1122:${{ secrets.ACCESS_TOKEN }}@github.com/storm1122/storm1122.github.io.git
+      run: |
+        git config --global user.name "storm1122"
+        git config --global user.email "abc369xyz@foxmail.com"
+        
+        git clone ${GH_REF} hexo-public
+        cp -rf public/* hexo-public/        
+        cd hexo-public
+        git add .
+        git commit -am "Deployed by GitHub Actions ..."
+        git push origin master
