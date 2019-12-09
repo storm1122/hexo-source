@@ -42,8 +42,8 @@ jobs:
 
     - name: 5. deploy 'public files' to 'storm1122.github.io' repo...
       env:
-      GH_REF: github.com/storm1122/storm1122.github.io.git
-      GH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        GH_REF: github.com/storm1122/storm1122.github.io.git
+        GH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
       run: |
         git config --global user.name "storm1122"
         git config --global user.email "abc369xyz@foxmail.com"
