@@ -40,7 +40,7 @@ jobs:
     #     git push origin master
 
 
-      - name: 5. deploy 'public files' to 'storm1122.github.io' repo...
+    - name: 5. deploy 'public files' to 'storm1122.github.io' repo...
       env:
       GH_REF: github.com/storm1122/storm1122.github.io.git
       GH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
