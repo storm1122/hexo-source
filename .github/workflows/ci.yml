@@ -37,7 +37,7 @@ jobs:
         cd hexo-public
         git add .
         git commit -m "CI built at `date +"%Y-%m-%d %H:%M:%S"`"
-        git push origin master
+        git push master
 
 
     # - name: 5. deploy 'public files' to 'storm1122.github.io' repo...
